@@ -24,6 +24,7 @@
   "homepage": "https://github.com/teemulehtinen/luetteloharjoitus#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.10.5",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
