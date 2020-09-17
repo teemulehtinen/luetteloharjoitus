@@ -1,8 +1,10 @@
 const express = require('express')
+const persons = require('./persons')
+
 const app = express()
 
-app.get('/', (req, res) => {
-    res.send('<p>hello test</p>')
+app.get('/api/persons', (req, res) => {
+   res.json(persons)
 })
 
 const PORT = 3001
