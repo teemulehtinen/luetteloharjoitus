@@ -8,7 +8,7 @@ const Person = require('./models/person')
 const app = express()
 app.use(express.static('build'))
 app.use(express.json())
-morgan.token('body', (req, res) => req.method == 'POST' ? JSON.stringify(req.body) : '')
+morgan.token('body', (req) => req.method == 'POST' ? JSON.stringify(req.body) : '')
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
 
 // Connect to db
@@ -17,7 +17,7 @@ console.log('connecting to', dburi)
 mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)
 mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
-  .then(result => console.log('connected to db'))
+  .then(() => console.log('connected to db'))
   .catch(error => console.log('error connecting to db', error.message))
 
 // Create serviced routes:

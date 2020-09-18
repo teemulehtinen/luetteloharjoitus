@@ -21,15 +21,15 @@ if (process.argv.length === 5) {
     name: process.argv[3],
     number: process.argv[4]
   })
-  person.save().then(result => {
-    console.log(`added ${person.name} number ${person.number} to phonebook`)
+  person.save().then(saved => {
+    console.log(`added ${saved.name} number ${saved.number} to phonebook`)
     mongoose.connection.close()
   })
 
 } else {
-  Person.find({}).then(result => {
+  Person.find({}).then(persons => {
     console.log('phonebook:')
-    result.forEach(p => console.log(`${p.name} ${p.number}`))
+    persons.forEach(p => console.log(`${p.name} ${p.number}`))
     mongoose.connection.close()
   })
 }

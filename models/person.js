@@ -18,9 +18,9 @@ schema.plugin(uniqueValidator)
 
 schema.set('toJSON', {
   transform: (document, json) => {
-      json.id = json._id.toString(),
-      delete json._id
-      delete json.__v
+    json.id = json._id.toString(),
+    delete json._id
+    delete json.__v
   }
 })
 
